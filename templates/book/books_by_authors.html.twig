@@ -1,0 +1,27 @@
+{# templates/book/books_by_authors.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Livres triés par Auteur{% endblock %}
+
+{% block body %}
+    <h1>Livres triés par Auteur</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Auteur</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author.username }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_AfficheBook') }}">Retour à la liste des livres</a>
+{% endblock %}

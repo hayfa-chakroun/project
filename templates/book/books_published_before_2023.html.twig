@@ -1,0 +1,29 @@
+{# templates/book/books_published_before_2023.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Livres publiés avant 2023 avec auteurs de plus de 10 livres{% endblock %}
+
+{% block body %}
+    <h1>Livres publiés avant 2023 avec auteurs de plus de 10 livres</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>Date de Publication</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author.username }}</td>
+                    <td>{{ book.publicationDate|date('d/m/Y') }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_AfficheBook') }}">Retour à la liste des livres</a>
+{% endblock %}

@@ -1,0 +1,19 @@
+{# templates/book/searchBookByRef.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Livres{% endblock %}
+
+{% block body %}
+    <h1>Liste des Livres</h1>
+
+    <form method="get" action="{{ path('app_searchBookByRef') }}">
+        <input type="text" name="search" placeholder="Rechercher par Ref" value="{{ searchTerm }}" />
+        <button type="submit">Rechercher</button>
+    </form>
+
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }} (Ref: {{ book.ref }})</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

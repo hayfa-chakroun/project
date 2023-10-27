@@ -1,0 +1,27 @@
+{# templates/author/list_by_email.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Auteurs par Email{% endblock %}
+
+{% block body %}
+    <h1>Liste des Auteurs par Email</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for author in authors %}
+                <tr>
+                    <td>{{ author.username }}</td>
+                    <td>{{ author.email }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <a href="{{ path('app_AfficheBook') }}">Retour à la liste des livres</a>
+{% endblock %}

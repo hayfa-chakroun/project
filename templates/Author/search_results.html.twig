@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Résultats de la recherche{% endblock %}
+
+{% block body %}
+    <h1>Résultats de la recherche</h1>
+    {% if authors is not empty %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID de l'auteur</th>
+                    <th>Nom de l'auteur</th>
+                    <th>Nombre de livres</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for author in authors %}
+                    <tr>
+                        <td>{{ author.id }}</td>
+                        <td>{{ author.username }}</td>
+                        <td>{{ author.nbBooks }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucun auteur trouvé dans la plage spécifiée du nombre de livres.</p>
+    {% endif %}
+    <a href="{{ path('app_Affiche') }}" class="btn btn-primary">Retour à la recherche</a>
+{% endblock %}
+

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rechercher des auteurs par nombre de livres{% endblock %}
+
+{% block body %}
+    <h1>Rechercher des auteurs par nombre de livres</h1>
+
+    {{ form_start(searchForm) }}
+    {{ form_row(searchForm.minBooks) }}
+    {{ form_row(searchForm.maxBooks) }}
+    <button type="submit" class="btn btn-primary">Rechercher</button>
+    {{ form_end(searchForm) }}
+
+    <hr>
+
+    <a href="{{ path('app_Affiche') }}" class="btn btn-secondary">Annuler</a>
+{% endblock %}
